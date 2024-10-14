@@ -14,13 +14,13 @@ export function Technology() {
       <div className="grid grid-cols-2 gap-4 pt-10 md:grid-cols-3 lg:grid-cols-4 ">
         {TecnologyOption.map(tecnology => (
           <Card key={tecnology.title} className="bg-zinc-900 border-zinc-700">
-            <CardContent className="flex items-center p-4">
+            <CardContent className="flex items-center p-3 md:p-4">
               <img
                 src={tecnology.imageUrl}
                 alt={tecnology.title}
-                className="w-6 h-6 mr-2"
+                className="w-5 h-5 mr-2"
               />
-              <span>{tecnology.title}</span>
+              <span className="text-sm">{tecnology.title}</span>
             </CardContent>
           </Card>
         ))}
