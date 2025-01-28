@@ -18,7 +18,7 @@ interface Project {
   image: string
   technologies: string[]
   demoLink?: string
-  link: string
+  Githublink: string
 }
 
 interface ProjectCarouselProps {
@@ -41,7 +41,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
   const project = projects[currentIndex]
 
   return (
-    <div className="relative">
+    <div className="relative pt-10">
       <Card className="w-full mx-auto">
         <CardHeader>
           <img
@@ -68,7 +68,11 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
         <CardFooter className="justify-between">
           <div className="flex items-center gap-2">
             <Button asChild>
-              <a className="flex gap-2" target="blank" href={project.link}>
+              <a
+                className="flex gap-2"
+                target="blank"
+                href={project.Githublink}
+              >
                 Github <Github />
               </a>
             </Button>
