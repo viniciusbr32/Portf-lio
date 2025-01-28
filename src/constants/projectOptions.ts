@@ -22,7 +22,7 @@ export const ProjectsOption: ProjectOption[] = [
   },
   {
     imageUrl: '/home-blog.png',
-    title: 'Conexões Infinitas',
+    title: 'Conexões infinitas',
     link: 'https://conexoes.vercel.app/',
   },
 ]
