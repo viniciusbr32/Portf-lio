@@ -20,4 +20,9 @@ export const ProjectsOption: ProjectOption[] = [
     title: 'Via Cep',
     link: 'https://github.com/viniciusbr32/ViaCEP',
   },
+  {
+    imageUrl: '/home-blog.png',
+    title: 'Conexões Infinitas',
+    link: 'https://conexoes.vercel.app/',
+  },
 ]
