@@ -1,40 +1,82 @@
+import { useState } from 'react'
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
-import { ProjectsOption } from '@/constants/projectOptions'
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 
-import { CardProject } from './card-project'
+interface Project {
+  id: number
+  title: string
+  description: string
+  image: string
+  technologies: string[]
+}
 
-export function Projects() {
+interface ProjectCarouselProps {
+  projects: Project[]
+}
+
+export function ProjectCarousel({ projects }: ProjectCarouselProps) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const nextProject = () => {
+    setCurrentIndex(prevIndex => (prevIndex + 1) % projects.length)
+  }
+
+  const prevProject = () => {
+    setCurrentIndex(
+      prevIndex => (prevIndex - 1 + projects.length) % projects.length
+    )
+  }
+
+  const project = projects[currentIndex]
+
   return (
-    <div className="w-full max-w-4xl py-8 mx-auto text-zinc-100">
-      <div className="flex justify-center w-full mb-8 ">
-        <h2 className="text-3xl font-bold text-zinc-100">Projetos</h2>
-      </div>
-      <Carousel className="w-full">
-        <CarouselContent>
-          {ProjectsOption.map(project => (
-            <CarouselItem
-              key={project.title}
-              className="md:basis-1/2 lg:basis-1/2"
-            >
-              <div className="p-1">
-                <CardProject
-                  title={project.title}
-                  imageUrl={project.imageUrl}
-                  link={project.link}
-                />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="hidden md:flex bg-zinc-800 text-zinc-100 hover:bg-zinc-700" />
-        <CarouselNext className="hidden md:flex bg-zinc-800 text-zinc-100 hover:bg-zinc-700" />
-      </Carousel>
+    <div className="relative pt-10">
+      <Card className="w-full max-w-4xl mx-auto">
+        <CardHeader>
+          <img
+            src={project.image}
+            alt={project.title}
+            width={800}
+            height={400}
+            className="rounded-lg object-cover w-full h-[400px]"
+          />
+        </CardHeader>
+        <CardContent>
+          <CardTitle className="mb-2 text-2xl">{project.title}</CardTitle>
+          <CardDescription className="mb-4 text-lg">
+            {project.description}
+          </CardDescription>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.technologies?.map(tech => (
+              <Badge key={tech} variant="secondary">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+        <CardFooter className="justify-between">
+          <Button asChild>
+            <a href={`/projetos/${project.id}`}>Ver Detalhes</a>
+          </Button>
+          <div className="flex gap-2">
+            <Button variant="outline" size="icon" onClick={prevProject}>
+              <ArrowLeft className="w-4 h-4" />
+            </Button>
+            <Button variant="outline" size="icon" onClick={nextProject}>
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        </CardFooter>
+      </Card>
     </div>
   )
 }
