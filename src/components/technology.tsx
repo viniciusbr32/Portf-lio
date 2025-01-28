@@ -4,7 +4,7 @@ import { Card, CardContent } from './ui/card'
 export function Technology() {
   return (
     <div
-      className="flex flex-col items-center justify-center w-full mx-auto max-w-7xl"
+      className="flex flex-col items-center justify-center w-full py-20 mx-auto max-w-7xl"
       id="technology"
     >
       <h2 className="mb-6 text-3xl font-bold">Habilidades</h2>
@@ -14,7 +14,7 @@ export function Technology() {
         e escaláveis, garantindo qualidade e robustez no código:
       </p>
 
-      <div className="grid grid-cols-2 gap-2 pt-10 md:grid-cols-3 lg:grid-cols-8 ">
+      <div className="grid grid-cols-2 gap-2 py-10 md:grid-cols-3 lg:grid-cols-8 ">
         {TecnologyOption.map(tecnology => (
           <Card key={tecnology.title} className="bg-zinc-900 border-zinc-700">
             <CardContent className="flex items-center p-3 md:p-4">

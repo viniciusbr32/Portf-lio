@@ -14,14 +14,22 @@ export function App() {
         <Header />
 
         <main className="">
-          <AboutHero />
-          <Technology />
-          <div className="text-center">
-            <h3>Projetos em Destaque </h3>
-            <p>Conheça alguns dos meus trabalhos mais recentes e impactantes</p>
+          <div id="about">
+            <AboutHero />
+          </div>
+          <div id="technologies">
+            <Technology />
+          </div>
+          <div className="py-20 text-center" id="projects">
+            <h3 className="mb-6 text-3xl font-bold">Projetos em destaque</h3>
+            <p className="text-lg text-zinc-300 md:text-lg">
+              Conheça alguns dos meus trabalhos mais recentes e impactantes
+            </p>
             <ProjectCarousel projects={ProjectsOption} />
           </div>
-          <FormContact />
+          <div id="#contact" className="py-40">
+            <FormContact />
+          </div>
         </main>
         <Footer />
       </div>

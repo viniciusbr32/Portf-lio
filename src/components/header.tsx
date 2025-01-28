@@ -12,10 +12,10 @@ export function Header() {
             </span>
           </a>
           <nav className="items-center hidden space-x-6 font-medium md:flex">
-            <a href="#sobre">Sobre</a>
-            <a href="#tecnologias">Tecnologias</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#contato">Contato</a>
+            <a href="#about">Sobre</a>
+            <a href="#technologies">Tecnologias</a>
+            <a href="#projects">Projetos</a>
+            <a href="#contact">Contato</a>
           </nav>
         </div>
       </div>
